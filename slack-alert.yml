@@ -1,6 +1,6 @@
     global:
       resolve_timeout: 1m
-      slack_api_url: ${SLACK_WEBHOOK_URL}
+      slack_api_url: ${{ secrets.SLACK_WEBHOOK_URL }}
     receivers:
     - name: 'slack-notificaions'
       slack_configs:

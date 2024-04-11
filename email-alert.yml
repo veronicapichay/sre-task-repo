@@ -1,4 +1,4 @@
- alertmanagerFiles:
+alertmanagerFiles:
   alertmanager.yml: 
     global:
       resolve_timeout: 1m
@@ -6,12 +6,12 @@
     receivers:
     - name: 'email-notifications'
       email_configs:
-      - to: ${TO_EMAIL_ADDRESS} 
-        from: ${FROM_EMAIL_ADDRESS} # Update your from mail id here
+      - to: ${{ secrets.EMAIL }} 
+        from: ${{ secrets.EMAIL }} # Update your from mail id here
         smarthost: smtp.gmail.com:587
-        auth_username: ${FROM_EMAIL_ADDRESS} # Update your from mail id here
-        auth_identity: ${FROM_EMAIL_ADDRESS} # Update your from mail id here
-        auth_password: ${EMAIL_PASSWORD} # Update your app-password here
+        auth_username: ${{ secrets.EMAIL }} # Update your from mail id here
+        auth_identity: ${{ secrets.EMAIL }} # Update your from mail id here
+        auth_password: ${{ secrets.AUTH_PW }} # Update your app-password here
         send_resolved: true
         headers:
           subject: " Prometheus -  Alert  "
